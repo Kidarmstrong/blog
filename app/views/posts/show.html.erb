@@ -1,0 +1,11 @@
+<% if @post %>
+  <h1><%= @post.subject %></h1>
+
+  </br>
+
+  <div><%= image_tag(@post.main_image.url) %></div>
+
+  </br>
+
+  <div><%= @post.main_body %></div>
+<% end %>
