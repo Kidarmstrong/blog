@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
+
   def index
     @posts = Post.all
   end
@@ -40,11 +41,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:subject, :main_body, :main_image, :main_image_cache)
-  end
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |name, password|
-      name == 'admin' && password == 'password'
-    end
   end
 end

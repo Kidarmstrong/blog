@@ -1,0 +1,34 @@
+<h1>Comments</h1>
+<h2>Needs Approving</h2>
+<% @comments_to_approve.each do |c| %>
+  <%= form_for(c) do |f| %>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.label :approved %> 
+    <%= f.check_box :approved %>
+
+    <%= f.submit 'Update comment' %> 
+  <% end %>
+  <%= button_to 'delete', c, method: :delete %>
+<% end %> 
+
+<h2>Rest of the comments</h2>
+
+______________________________________________ 
+<% @comments.each do |c| %>
+  <p>
+  Author: 
+  <%= c.author %>
+  </p>
+  <p>
+  Body: 
+    <%= c.body %>
+  </p>
+   
+  <%= button_to 'delete', c, method: :delete %>
+  ______________________________________________ 
+<% end %>
