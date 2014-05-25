@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@post, :html => {:multipart => true}) do |f| %>
+
+      <div>
+        <%= f.label :subject %> </br>
+        <%= f.text_field :subject %>
+      </div>
+
+      </br>      
+
+      <div>
+        <%= f.label :main_image %></br>
+        <%= f.file_field :main_image %>
+        <%= f.hidden_field :main_image_cache %>
+      </div>
+
+      </br>      
+
+      <div>
+        <%= f.label :main_body %></br>
+        <%= f.cktext_area :main_body, :ckeditor => { :width => '50%' } %>
+      </div>
+
+      </br>      
+
+      <div>
+        <%= f.submit "Create Post", class: "btn btn-large btn-primary" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

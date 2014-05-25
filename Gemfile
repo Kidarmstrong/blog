@@ -11,7 +11,10 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 gem "carrierwave"
 gem "rmagick"
+gem 'mini_magick'
 gem 'pry-rails', :group => :development
+gem 'ckeditor'
+gem 'activesupport-json_encoder', github: 'rails/activesupport-json_encoder'
 
 group :test do
   gem 'selenium-webdriver', '2.35.1'
