@@ -1,5 +1,161 @@
-INDEX
-
-<% @posts.each do |p| %>
-  <div><%= p.subject %></div>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "carousel" %>
 <% end %>
+
+<div class="navbar-wrapper">
+  <div class="container">
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'Blog', root_path, :class => 'navbar-brand' %>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class='active'><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'About', '#' %></li>
+            <li><%= link_to 'Contact', '#' %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <div class='carousel-inner'>
+    <% Post.carousel(3).each_with_index do |post, index| %>
+      <div class="item
+        <% if index == 0 %>
+          active
+        <% end %>
+
+        ">
+        <%= image_tag(post.main_image.index.url) %>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1><%= post.subject %></h1>
+            <p><%= raw post.main_body %> </p>
+            <p><a class="btn btn-large btn-primary" href="#">Go To</a></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<% post1 = Post.first 
+    post2 = Post.second
+    post3 = Post.third
+%>
+
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <%= image_tag(post1.main_image.circle.url, class: 'img-circle') %>
+      <h2><%= post1.subject %></h2>
+      <p><%= raw post1.main_body %></p>
+      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <%= image_tag(post2.main_image.circle.url, class: 'img-rounded') %>
+      <h2><%= post2.subject %></h2>
+      <p><%= raw post2.main_body %></p>
+      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <%= image_tag(post3.main_image.circle.url, class: 'img-thumbnail') %>
+      <h2><%= post3.subject %> </h2>
+      <p><%= raw post3.main_body %></p>
+      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+
+  <!-- START THE FEATURETTES -->
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><%= post1.subject %>. <span class="text-muted">Some caption</span></h2>
+      <p class="lead"><%= raw post1.main_body %></p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag(post1.main_image.url, class: 'featurette-image img-responsive') %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-5">
+      <h2 class="featurette-heading"><%= post2.subject %>. <span class="text-muted">Some caption</span></h2>
+      <p class="lead"><%= raw post2.main_body %></p>
+    </div>
+    <div class="col-md-7">
+      <%= image_tag(post2.main_image.url, class: 'featurette-image img-responsive') %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><%= post3.subject %>. <span class="text-muted">Some caption</span></h2>
+      <p class="lead"><%= raw post3.main_body %></p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag(post3.main_image.url, class: 'featurette-image img-responsive') %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; Armstrong &middot; </p>
+  </footer>
+
+</div><!-- /.container -->
+
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "bootstrap" %>
+<%= javascript_include_tag "examples/holder" %>
