@@ -1,0 +1,26 @@
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <div class='carousel-inner'>
+    <% Post.carousel(3).each_with_index do |post, index| %>
+      <div class="item
+        <% if index == 0 %>
+          active
+        <% end %>
+
+        ">
+        <%= image_tag(post.main_image.index.url) %>
+      </div>
+    <% end %>
+  </div>
+
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
