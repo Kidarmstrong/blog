@@ -1,0 +1,29 @@
+<% post1 = posts.first 
+post2 = posts.second
+post3 = posts.third
+%>
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <%= image_tag(post1.main_image.circle.url, class: 'img-rounded') %>
+      <h2><%= post1.subject %></h2>
+      <p><%= raw post1.main_body %></p>
+      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <%= image_tag(post2.main_image.circle.url, class: 'img-circle') %>
+      <h2><%= post2.subject %></h2>
+      <p><%= raw post2.main_body %></p>
+      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <%= image_tag(post3.main_image.circle.url, class: 'img-rounded') %>
+      <h2><%= post3.subject %> </h2>
+      <p><%= raw post3.main_body %></p>
+      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->

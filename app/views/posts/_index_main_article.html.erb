@@ -1,0 +1,13 @@
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-5">
+    <%= image_tag(post.main_image.url, class: 'featurette-image img-rounded img-responsive') %>
+  </div>
+  <div class="col-md-7">
+    <h2 class="featurette-heading"><%= post.subject %>. <span class="text-muted">Some caption</span></h2>
+    <p class="lead"><%= raw post.main_body %></p>
+  </div>
+</div>
+
+<hr class="featurette-divider">

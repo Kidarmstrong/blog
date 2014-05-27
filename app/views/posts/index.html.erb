@@ -2,96 +2,29 @@
   <%= stylesheet_link_tag "carousel" %>
 <% end %>
 
+<% posts = Post.carousel(7) %>
+
 <%= render 'layouts/carousel' %>
 <%= render 'layouts/navbar' %>
-
-
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-<% post1 = Post.first 
-    post2 = Post.second
-    post3 = Post.third
-%>
-
-
 <div class="container marketing">
-
-  <!-- Three columns of text below the carousel -->
-  <div class="row">
-    <div class="col-lg-4">
-      <%= image_tag(post1.main_image.circle.url, class: 'img-circle') %>
-      <h2><%= post1.subject %></h2>
-      <p><%= raw post1.main_body %></p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <%= image_tag(post2.main_image.circle.url, class: 'img-rounded') %>
-      <h2><%= post2.subject %></h2>
-      <p><%= raw post2.main_body %></p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <%= image_tag(post3.main_image.circle.url, class: 'img-thumbnail') %>
-      <h2><%= post3.subject %> </h2>
-      <p><%= raw post3.main_body %></p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-  </div><!-- /.row -->
-
-
-  <!-- START THE FEATURETTES -->
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading"><%= post1.subject %>. <span class="text-muted">Some caption</span></h2>
-      <p class="lead"><%= raw post1.main_body %></p>
+  <div class='row'>
+    <div class="col-md-9">
+      <%= render 'index_main_article',  post: posts.first  %>
+      <%= render 'index_thumbs.html.erb', posts: posts[1..3] %>
+      <%= render 'index_thumbs.html.erb', posts: posts[4..7] %>
     </div>
-    <div class="col-md-5">
-      <%= image_tag(post1.main_image.url, class: 'featurette-image img-responsive') %>
+    <div class='col-md-3'>
+
     </div>
   </div>
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-5">
-      <h2 class="featurette-heading"><%= post2.subject %>. <span class="text-muted">Some caption</span></h2>
-      <p class="lead"><%= raw post2.main_body %></p>
-    </div>
-    <div class="col-md-7">
-      <%= image_tag(post2.main_image.url, class: 'featurette-image img-responsive') %>
-    </div>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading"><%= post3.subject %>. <span class="text-muted">Some caption</span></h2>
-      <p class="lead"><%= raw post3.main_body %></p>
-    </div>
-    <div class="col-md-5">
-      <%= image_tag(post3.main_image.url, class: 'featurette-image img-responsive') %>
-    </div>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <!-- /END THE FEATURETTES -->
-
 
   <!-- FOOTER -->
   <footer>
     <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; Armstrong &middot; </p>
+    <p class="pull-left">&copy; Armstrong &middot; </p>
   </footer>
 
-</div><!-- /.container -->
+</div>
 
 <%= javascript_include_tag "jquery" %>
 <%= javascript_include_tag "bootstrap" %>
