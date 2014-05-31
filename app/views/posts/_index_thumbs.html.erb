@@ -1,12 +1,15 @@
-<div class="container marketing">
-  <div class="row">
-  <% posts.each do |post| %>
-    <div class="col-lg-4">
-      <%= image_tag(post.main_image.circle.url, class: 'img-rounded') %>
-      <h2><%= post.subject %></h2>
-      <p><%= raw post.main_body %></p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
+<div id="wrapper">
+  <div id="columns">
+    <% posts.each do |post| %>
+      <div class="pin">                                                                                  
+        <%= link_to(post) do %>
+          <h4><b><%= post.subject %></b></h4>
+          <%= image_tag(post.main_image.circle.url, class: 'img-rounded') %>
+          <p>
+            <%= truncate(strip_tags(post.caption), length: 200, seperator: ' ') %>
+          </p>
+        <% end %>
+      </div>
     <% end %>
-  </div><!-- /.row -->
-</div><!-- /.container -->
+  </div>
+</div>

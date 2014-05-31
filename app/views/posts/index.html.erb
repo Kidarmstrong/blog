@@ -1,34 +1,22 @@
-<% if Post.all.any? %>
 <% content_for :head do %>
+  <%= stylesheet_link_tag "pinning" %>
   <%= stylesheet_link_tag "carousel" %>
 <% end %>
-
-<% posts = Post.carousel(7) %>
-
+    
+<% posts = Post.show_on_index %>                                                                         
 <%= render 'layouts/carousel' %>
 <%= render 'layouts/navbar' %>
+
 <div class="container marketing">
   <div class='row'>
     <div class="col-md-9">
-      <%= render 'index_main_article',  post: Post.main_article %>
-      <% unless posts.empty? %>
-      <%= render 'index_thumbs.html.erb', posts: posts %>
-      <% end %>
+      <%= render 'index_main_article',  post: Post.main_article %>  
+      <%= render 'index_thumbs',  posts: posts %>  
     </div>
     <div class='col-md-3'>
-Hello
-
     </div>
   </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p class="pull-left">&copy; Armstrong &middot; </p>
-  </footer>
-
 </div>
 
 <%= javascript_include_tag "jquery" %>
 <%= javascript_include_tag "bootstrap" %>
-<% end %>

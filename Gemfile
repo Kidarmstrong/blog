@@ -16,6 +16,7 @@ gem 'mini_magick'
 gem 'pry-rails', :group => :development
 gem 'ckeditor'
 gem 'activesupport-json_encoder', github: 'rails/activesupport-json_encoder'
+gem 'seed_dumper'
 
 group :test do
   gem 'selenium-webdriver', '2.35.1'

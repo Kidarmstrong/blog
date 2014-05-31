@@ -21,7 +21,7 @@ class Post < ActiveRecord::Base
   scope :carousel, lambda { |num| show_on_index.order('created_at DESC').limit(num) }
   scope :main_article, lambda { where(main_article: true).first }
   scope :not_main_article, lambda { where(main_article: false) }
-  scope :show_on_index, lambda { not_main_article.where(show_on_main_page: true) }
+  scope :show_on_index, lambda { not_main_article.where(show_on_main_page: true).order('created_at DESC') }
 
   def self.newest
     Post.last
