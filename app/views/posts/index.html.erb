@@ -9,9 +9,11 @@
 <div class="container marketing">
   <div class='row'>
     <div class="col-md-9">
-      <%= render 'index_main_article',  post: posts.first  %>
-      <%= render 'index_thumbs.html.erb', posts: posts[1..3] %>
-      <%= render 'index_thumbs.html.erb', posts: posts[4..7] %>
+      <%= render 'index_main_article',  post: Post.main_article %>
+      <%= render 'index_thumbs.html.erb', posts: posts[0..2] %>
+      <% if posts.count >= 6 %>
+      <%= render 'index_thumbs.html.erb', posts: posts[3..6] %>
+    <% end %>
     </div>
     <div class='col-md-3'>
 
@@ -28,4 +30,3 @@
 
 <%= javascript_include_tag "jquery" %>
 <%= javascript_include_tag "bootstrap" %>
-<%= javascript_include_tag "examples/holder" %>

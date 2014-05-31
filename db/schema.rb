@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527180825) do
+ActiveRecord::Schema.define(version: 20140528171428) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140527180825) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "caption"
+    t.boolean  "main_article",      default: false
+    t.boolean  "show_on_main_page", default: true
   end
 
 end

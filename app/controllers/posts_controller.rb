@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:subject, :main_body, :caption, :main_image, :main_image_cache)
+    params.require(:post).permit(:subject, :show_on_main_page, :main_article, :main_body, :caption, :main_image, :main_image_cache)
   end
+
 end
