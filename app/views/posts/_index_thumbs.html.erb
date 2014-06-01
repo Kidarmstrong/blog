@@ -4,7 +4,7 @@
       <div class="pin">                                                                                  
         <%= link_to(post) do %>
           <h4><b><%= post.subject %></b></h4>
-          <%= image_tag(post.main_image.circle.url, class: 'img-rounded') %>
+          <%= image_tag(post.main_image.index_pin.url) %>
           <p>
             <%= truncate(strip_tags(post.caption), length: 200, seperator: ' ') %>
           </p>
