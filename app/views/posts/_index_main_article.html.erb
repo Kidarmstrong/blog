@@ -1,10 +1,15 @@
 <div class="row featurette">
   <div class="col-md-6">
-    <%= image_tag(post.main_image.url, class: 'featurette-image img-rounded img-responsive') %>
+    <%= link_to post do %>
+      <%= image_tag(post.main_image.index.url, class: 'featurette-image img-rounded img-responsive') %>
+    <% end %>
   </div>
   <div class="col-md-6">
     <h2 class="featurette-heading"><%= post.subject %>. <span class="text-muted">Some caption</span></h2>
 <% body = truncate(post.main_body, length: 200, separator: ' ') %>
     <p class="lead"><%= truncate(strip_tags(post.main_body), length: 200, separator: ' ') %></p>
+<p class="lead">
+  <%= link_to "Read More", post %>
+</p>
   </div>
 </div>

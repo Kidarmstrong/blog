@@ -1,22 +1,4 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag "pinning" %>
-  <%= stylesheet_link_tag "carousel" %>
-<% end %>
-    
 <% posts = Post.show_on_index %>                                                                         
-<%= render 'layouts/carousel' %>
-<%= render 'layouts/navbar' %>
+<%= render 'index_main_article',  post: Post.main_article %>  
+<%= render 'index_thumbs',  posts: posts %>  
 
-<div class="container marketing">
-  <div class='row'>
-    <div class="col-md-9">
-      <%= render 'index_main_article',  post: Post.main_article %>  
-      <%= render 'index_thumbs',  posts: posts %>  
-    </div>
-    <div class='col-md-3'>
-    </div>
-  </div>
-</div>
-
-<%= javascript_include_tag "jquery" %>
-<%= javascript_include_tag "bootstrap" %>
