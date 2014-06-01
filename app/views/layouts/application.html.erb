@@ -13,11 +13,17 @@
 </head>
 <body>
 <div class="container">
+  <div class='row' style="margin: 0px 0px 20px 0px;">
+  <%= link_to root_path do %>
+  <%= image_tag('header.jpg') %>
+  <% end %>
+
+  </div>
   <div class='row'>
-    <div class="col-md-9">
+    <div class="col-md-10">
       <%= yield %>
     </div>
-    <div class='col-md-3'>
+    <div class='col-md-2'>
       <%= render 'layouts/sidebar'%>  
     </div>
   </div>
