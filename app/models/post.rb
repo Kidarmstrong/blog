@@ -36,7 +36,7 @@ class Post < ActiveRecord::Base
   def set_main_article
     # This could be moved to a index page default table
     if main_article?
-      self.class.where('id != ?', self.id).update_all("main_article = 0")
+      self.class.where('id != ?', self.id).update_all("main_article = f")
     end
   end
 end
