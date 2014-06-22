@@ -1,1 +1,26 @@
 @import "bootstrap";
+
+.box_hover {
+  a {
+
+  }
+
+}
+
+
+.box_hover:hover {
+  background-color: light-grey;
+  text-decoration: none;
+}
+
+.box_hover.li:hover {
+  text-decoration: none;
+}
+
+.box_hover.ul:hover {
+  text-decoration: none;
+}
+
+.box_hover.ul.li:hover {
+  text-decoration: none;
+}

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   root 'posts#index' 
 
+  match '/about',   to: 'static_pages#about', via: 'get'
+  match '/ask_me',   to: 'static_pages#ask_me', via: 'get'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,9 +1,15 @@
 <div class="container">
 <ul class="list-group">
-  <li class="list-group-item">Home <a class="glyphicon glyphicon-home pull-right"></a></li>
+  <%= link_to root_path do %>
+  <li class="list-group-item box_hover">Home</li>
+<% end %>
+  <%= link_to about_path do %>
   <li class="list-group-item">About</li>
+<% end %>
   <li class="list-group-item">Archive</li>
+  <%= link_to ask_me_path do %>
   <li class="list-group-item">Ask Me</li>
+<% end %>
   <li class="list-group-item">Gallery</li>
 </ul>
 
