@@ -5,6 +5,12 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def archive
+    @posts = Post.all
+    @posts_by_month = @posts.group_by { |t| t.created_at.beginning_of_month }  
+    @month = params[:format]
+  end
+
   def new 
     @post = Post.new
   end
@@ -31,6 +37,10 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by_id(params[:id])
+    unless @post
+      flash[:error] = 'Post not found'
+      redirect_to root_path
+    end
   end
   
   def edit

@@ -1,0 +1,31 @@
+<div class='container' >
+  <h1>Archive</h1>
+  <div class="panel-group" id="accordion">
+
+    <% count = 1 %>
+    <% @posts_by_month.each do |month, posts| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <%= link_to "#collapse#{count.humanize.capitalize}" do %>
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=count.humanize.capitalize%>">
+                <%= "#{month.strftime('%B')} #{month.strftime('%Y')}" %>
+              </a>
+            <% end %>
+          </h4>
+        </div>
+        <div id="collapse<%=count.humanize.capitalize%>" class="panel-collapse collapse <%= 'in' if (month.strftime('%B') == @month || (@month == nil && count == 1)) %>">
+          <div class="panel-body">
+            <ul>
+              <% posts.each do |post| %> 
+                <li><%= post.subject %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <% count = count + 1 %>
+    <% end %>
+  </div>
+</div>
+

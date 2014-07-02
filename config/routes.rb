@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
 
+  get '/posts/archive'
+  get '/archive' => "posts#archive"
+
   root 'posts#index' 
 
   match '/about',   to: 'static_pages#about', via: 'get'

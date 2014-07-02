@@ -6,7 +6,9 @@
   <%= link_to about_path do %>
   <li class="list-group-item">About</li>
 <% end %>
+  <%= link_to archive_path do %>
   <li class="list-group-item">Archive</li>
+<% end %>
   <%= link_to ask_me_path do %>
   <li class="list-group-item">Ask Me</li>
 <% end %>
@@ -15,14 +17,12 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">Archive</div>
-    <ul class="list-group">
-      <li class="list-group-item">June</li>
-      <li class="list-group-item">May</li>
-      <li class="list-group-item">April</li>
-      <li class="list-group-item">March</li>
-      <li class="list-group-item">Febuary</li>
-      <li class="list-group-item">January</li>
-      <li class="list-group-item">2013</li>
+  <ul class="list-group">
+    <% get_months.each do |month| %>
+      <%= link_to archive_path(:month => month.strftime('%B')) do %>
+        <li class="list-group-item"><%= month.strftime('%B') %></li>
+      <% end %>
+    <% end %>
     </ul>
 </div>
 
