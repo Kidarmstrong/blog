@@ -14,9 +14,10 @@ class Post < ActiveRecord::Base
 
   # Scopes
   scope :carousel, lambda { |num| show_on_index.order('created_at DESC').limit(num) }
-  scope :starred, lambda { where(starred: true) }
-  scope :not_starred, lambda { where(starred: false) }
-  scope :show_on_index, lambda { where(visible: true).order('created_at DESC') }
+  scope :starred, lambda { visible.where(starred: true) }
+  scope :not_starred, lambda { visible.where(starred: false) }
+  scope :show_on_index, lambda { visible.order('created_at DESC') }
+  scope :visible, lambda { where(visible: true) }
 
   def self.newest
     Post.last

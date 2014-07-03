@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by_id(params[:id])
-    unless @post
+    if @post || @post.visible == false
       flash[:error] = 'Post not found'
       redirect_to root_path
     end
