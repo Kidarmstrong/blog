@@ -16,6 +16,17 @@
 </ul>
 
 <div class="panel panel-default">
+  <div class="panel-heading">Starred Posts</div>
+    <ul class="list-group">
+    <% starred_posts.each do |post| %>
+      <%= link_to post_path do %>
+        <li class="list-group-item"><%= post.subject %></li>
+      <% end %>
+    <% end %>
+    </ul>
+</div>
+
+<div class="panel panel-default">
   <div class="panel-heading">Archive</div>
   <ul class="list-group">
     <% get_months.each do |month| %>

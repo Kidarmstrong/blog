@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20140528171428) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "caption"
-    t.boolean  "main_article",      default: false
-    t.boolean  "show_on_main_page", default: true
+    t.boolean  "visible",    default: true
+    t.boolean  "starred",    default: false
   end
 
 end

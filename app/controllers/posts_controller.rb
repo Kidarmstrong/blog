@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def archive
     @posts = Post.all
     @posts_by_month = @posts.group_by { |t| t.created_at.beginning_of_month }  
-    @month = params[:format]
+    @month = params[:month]
   end
 
   def new 
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:subject, :show_on_main_page, :main_article, :main_body, :caption, :main_image, :main_image_cache)
+    params.require(:post).permit(:subject, :visible, :starred, :main_body, :caption, :main_image, :main_image_cache)
   end
 
 end

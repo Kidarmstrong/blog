@@ -1,6 +1,6 @@
 class AddIndexPageOptionsToPost < ActiveRecord::Migration
   def change
-    add_column :posts, :main_article, :boolean, :default => false
-    add_column :posts, :show_on_main_page, :boolean, :default => true
+    add_column :posts, :visible, :boolean, :default => true
+    add_column :posts, :starred, :boolean, :default => false 
   end
 end
