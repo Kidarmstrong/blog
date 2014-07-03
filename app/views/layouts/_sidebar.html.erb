@@ -19,7 +19,7 @@
   <div class="panel-heading">Starred Posts</div>
     <ul class="list-group">
     <% starred_posts.each do |post| %>
-      <%= link_to post_path do %>
+      <%= link_to(post) do %>
         <li class="list-group-item"><%= post.subject %></li>
       <% end %>
     <% end %>
