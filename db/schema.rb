@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528171428) do
+ActiveRecord::Schema.define(version: 20140704090151) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20140528171428) do
     t.string   "caption"
     t.boolean  "visible",    default: true
     t.boolean  "starred",    default: false
+    t.integer  "tag_id"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.string   "colour"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

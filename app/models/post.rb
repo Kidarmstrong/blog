@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
 
   # Relations
   has_many :comments
+  belongs_to :tag
 
   # Validations
   validates :subject, presence: true, length: { maximum: 30 } 

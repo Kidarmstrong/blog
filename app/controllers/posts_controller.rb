@@ -13,14 +13,20 @@ class PostsController < ApplicationController
 
   def new 
     @post = Post.new
+    @tags = Tag.all
   end
 
   def create
     @post = Post.new(post_params)
-    if @post.save!
+    if @post.save
       flash[:success] = 'Post created succesfully'
       redirect_to post_path(@post.id) 
     else
+      # Bad change new to eager load?
+      #@post.errors.each do |local, error|
+       # flash_message(:error, "#{local} - #{error}")
+      #end
+      @tags = Tag.all
       render 'new'
     end
   end
@@ -37,7 +43,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by_id(params[:id])
-    if @post || @post.visible == false
+    if @post.nil? || @post.visible == false
       flash[:error] = 'Post not found'
       redirect_to root_path
     end
@@ -45,12 +51,13 @@ class PostsController < ApplicationController
   
   def edit
     @post = Post.find_by_id(params[:id])
+    @tags = Tag.all
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:subject, :visible, :starred, :main_body, :caption, :main_image, :main_image_cache)
+    params.require(:post).permit(:subject, :visible, :starred, :tag_id, :main_body, :caption, :main_image, :main_image_cache)
   end
 
 end
